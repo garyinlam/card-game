@@ -27,22 +27,7 @@ public class Snap extends CardGame{
             lastCard = current;
         }
 
-        System.out.println("Quick type 'snap' to win");
-        int timeOut = 2;
-        long startTime = System.currentTimeMillis();
-        while ((System.currentTimeMillis() - startTime) < timeOut * 1000
-                && !br.ready()) {
-        }
-        if (br.ready()) {
-            String check = br.readLine().toLowerCase();
-            if (check.equals("snap")){
-                System.out.println("Snap! " + players[(turnCounter - 1) % players.length].getName() + " wins!");
-            } else {
-                System.out.println("Incorrect input you lose! " + players[turnCounter % players.length].getName() + " wins!");
-            }
-        } else {
-            System.out.println("Too slow you lose! " + players[turnCounter % players.length].getName() + " wins!");
-        }
+        endGame(br,turnCounter);
     }
 
     private Card doTurn(BufferedReader br, Player player){
@@ -77,6 +62,25 @@ public class Snap extends CardGame{
             System.out.println("Enter your name:");
             players[0] = new Player(Input.getName(br));
             players[1] = new Player("Computer");
+        }
+    }
+
+    private void endGame(BufferedReader br, int turnCounter) throws IOException {
+        System.out.println("Quick type 'snap' to win");
+        int timeOut = 2;
+        long startTime = System.currentTimeMillis();
+        while ((System.currentTimeMillis() - startTime) < timeOut * 1000
+                && !br.ready()) {
+        }
+        if (br.ready()) {
+            String check = br.readLine().toLowerCase();
+            if (check.equals("snap")){
+                System.out.println("Snap! " + players[(turnCounter - 1) % players.length].getName() + " wins!");
+            } else {
+                System.out.println("Incorrect input you lose! " + players[turnCounter % players.length].getName() + " wins!");
+            }
+        } else {
+            System.out.println("Too slow you lose! " + players[turnCounter % players.length].getName() + " wins!");
         }
     }
 

@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         boolean playAgain = true;
         while (playAgain) {
             Snap snap = new Snap();
@@ -18,6 +19,7 @@ public class Main {
             System.out.println("Play again? (y/n)");
             playAgain = Input.confirm(br);
         }
+
         try {
             br.close();
         } catch (IOException e) {
