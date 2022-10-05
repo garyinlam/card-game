@@ -54,8 +54,10 @@ public class Blackjack extends CardGame{
             }
         }
         dealFaceUp(players[1],faceDown);
+        Input.wait(br);
         while (players[1].handValue() < 17){
             dealFaceUp(players[1]);
+            Input.wait(br);
         }
         if (bust && players[1].handValue() > 21){
             System.out.println("Both players bust, no-one wins.");

@@ -8,6 +8,8 @@ public class Snap extends CardGame{
     private Card lastCard;
     private Player[] players = new Player[2];
 
+    private boolean isMultiplayer;
+
     public Snap() {
         super("snap");
     }
@@ -34,7 +36,6 @@ public class Snap extends CardGame{
     private Card doTurn(BufferedReader br, Player player){
         System.out.println("-----------------------------------------------------------");
         System.out.println(player.getName()+"'s turn");
-        System.out.println("Press enter do next turn");
         Input.wait(br);
         Card card = dealCard();
         if (card == null) {
@@ -50,7 +51,8 @@ public class Snap extends CardGame{
 
     private void setUp(BufferedReader br){
         System.out.println("Would you like to play against a friend (y) or the computer (n)");
-        if (Input.confirm(br)){
+        isMultiplayer = Input.confirm(br);
+        if (isMultiplayer){
             System.out.println("Enter first player's name:");
             players[0] = new Player(Input.getName(br));
             System.out.println("Enter second player's name:");
@@ -63,6 +65,12 @@ public class Snap extends CardGame{
     }
 
     private void endGame(BufferedReader br, int turnCounter) throws IOException {
+        Player current = players[0];
+        Player other = players[1];
+        if (isMultiplayer){
+            current = players[(turnCounter - 1) % players.length];
+            other = players[turnCounter % players.length];
+        }
         System.out.println("Quick type 'snap' to win");
         int timeOut = 2;
         long startTime = System.currentTimeMillis();
@@ -72,12 +80,12 @@ public class Snap extends CardGame{
         if (br.ready()) {
             String check = br.readLine().toLowerCase();
             if (check.equals("snap")){
-                System.out.println("Snap! " + players[(turnCounter - 1) % players.length].getName() + " wins!");
+                System.out.println("Snap! " + current.getName() + " wins!");
             } else {
-                System.out.println("Incorrect input you lose! " + players[turnCounter % players.length].getName() + " wins!");
+                System.out.println("Incorrect input you lose! " + other.getName() + " wins!");
             }
         } else {
-            System.out.println("Too slow you lose! " + players[turnCounter % players.length].getName() + " wins!");
+            System.out.println("Too slow you lose! " + other.getName() + " wins!");
         }
     }
 

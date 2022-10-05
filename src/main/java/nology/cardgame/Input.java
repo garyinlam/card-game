@@ -2,6 +2,7 @@ package nology.cardgame;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Input {
     public static boolean confirm(BufferedReader br){
@@ -92,6 +93,7 @@ public class Input {
     }
 
     public static void wait(BufferedReader br){
+        System.out.println("Press enter do next turn");
         try {
             br.readLine();
         } catch (IOException e) {

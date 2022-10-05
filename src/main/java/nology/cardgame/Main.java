@@ -10,11 +10,23 @@ public class Main {
 
         boolean playAgain = true;
         while (playAgain) {
-            //Snap snap = new Snap();
-            Blackjack blackjack = new Blackjack();
+            System.out.println("Choose a game:");
+            System.out.println("1 - Snap");
+            System.out.println("2 - Blackjack");
+            int choice = Input.getInt(br,1,2);
+            CardGame game = null;
+            switch (choice){
+                case 1:
+                    game = new Snap();
+                    break;
+                case 2:
+                    game = new Blackjack();
+                    break;
+            }
             try {
-                //snap.doGame(br);
-                blackjack.doGame(br);
+                if (game != null) {
+                    game.doGame(br);
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
