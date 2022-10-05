@@ -12,6 +12,7 @@ public class Snap extends CardGame{
         super("snap");
     }
 
+    @Override
     public void doGame(BufferedReader br) throws IOException {
         System.out.println("Welcome to snap");
         setUp(br);
@@ -34,11 +35,7 @@ public class Snap extends CardGame{
         System.out.println("-----------------------------------------------------------");
         System.out.println(player.getName()+"'s turn");
         System.out.println("Press enter do next turn");
-        try {
-            br.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Input.wait(br);
         Card card = dealCard();
         if (card == null) {
             System.out.println("Out of cards, picking up cards except last and reshuffling deck");

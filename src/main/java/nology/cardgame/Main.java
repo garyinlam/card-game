@@ -10,9 +10,11 @@ public class Main {
 
         boolean playAgain = true;
         while (playAgain) {
-            Snap snap = new Snap();
+            //Snap snap = new Snap();
+            Blackjack blackjack = new Blackjack();
             try {
-                snap.doGame(br);
+                //snap.doGame(br);
+                blackjack.doGame(br);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

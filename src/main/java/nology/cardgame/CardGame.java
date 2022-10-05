@@ -1,10 +1,12 @@
 package nology.cardgame;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class CardGame {
+public abstract class CardGame {
     ArrayList<Card> deckOfCards;
     String name;
 
@@ -64,6 +66,8 @@ public class CardGame {
         });
         System.out.println();
     }
+
+    public abstract void doGame(BufferedReader br) throws IOException;
 
 
 }
