@@ -53,6 +53,7 @@ public class Blackjack extends CardGame{
                 }
             }
         }
+        Input.wait(br);
         dealFaceUp(players[1],faceDown);
         Input.wait(br);
         while (players[1].handValue() < 17){
