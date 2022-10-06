@@ -50,6 +50,11 @@ public class Snap extends CardGame{
     }
 
     private void setUp(BufferedReader br){
+        System.out.println("Would you like to read the rules? (y/n)");
+        if(Input.confirm(br)){
+            rules();
+            Input.wait(br);
+        }
         System.out.println("Would you like to play against a friend (y) or the computer (n)");
         isMultiplayer = Input.confirm(br);
         if (isMultiplayer){
@@ -87,6 +92,18 @@ public class Snap extends CardGame{
         } else {
             System.out.println("Too slow you lose! " + other.getName() + " wins!");
         }
+    }
+
+    public static void rules(){
+        System.out.println("Snap can be played versus the computer or another player.");
+        System.out.println("Each turn a card is dealt from the top of the deck");
+        System.out.println("If the card value matches the previous card's value that player has 2 seconds to type snap");
+        System.out.println("When versus another player:");
+        System.out.println("Typing in snap within the time limit will result in the player that dealt that card winning");
+        System.out.println("Miss typing or failing to type within 2 seconds will result in the other player winning.");
+        System.out.println("When playing versus the computer:");
+        System.out.println("Typing in snap within the time limit will result in the player winning");
+        System.out.println("Miss typing or failing to type within 2 seconds will result in the computer winning.");
     }
 
 }

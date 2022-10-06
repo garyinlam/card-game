@@ -100,6 +100,11 @@ public class Blackjack extends CardGame{
     }
 
     private void setUp(BufferedReader br){
+        System.out.println("Would you like to read the rules? (y/n)");
+        if(Input.confirm(br)){
+            rules();
+            Input.wait(br);
+        }
         System.out.println("Enter your name:");
         players[0] = new BlackjackPlayer(Input.getName(br));
         players[1] = new BlackjackPlayer("Dealer");
@@ -107,5 +112,22 @@ public class Blackjack extends CardGame{
         rounds = Input.getInt(br,1,10);
     }
 
-
+    public static void rules(){
+        System.out.println("Blackjack rules:");
+        System.out.println("Single player blackjack versus the dealer.");
+        System.out.println("Dealer will deal two face up cards, one for you and one for themselves.");
+        System.out.println("Dealer will then deal you a second face up card and then themselves a face down card");
+        System.out.println("You can then choose to hit or stand");
+        System.out.println("Hitting will make the dealer deal you another card from the deck");
+        System.out.println("If your hand value exceeds 21 you will bust and your turn will end");
+        System.out.println("Standing ends your turn with your current hand");
+        System.out.println("The dealer will then reveal their face down card");
+        System.out.println("The dealer must hit below 17 and stand on or above 17");
+        System.out.println("The player with the greater hand value will win");
+        System.out.println("If only one player busts, the player that did not bust wins");
+        System.out.println("If both players bust or the hand values are identical, no-one wins");
+        System.out.println("Number cards are face vale (2-10)");
+        System.out.println("Face cards have a value of 10");
+        System.out.println("The ace is valued at 11 or 1, it is 11 unless that would take your hand value above 21 in which case it becomes 1");
+    }
 }

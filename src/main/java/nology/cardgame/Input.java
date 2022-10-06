@@ -93,7 +93,7 @@ public class Input {
     }
 
     public static void wait(BufferedReader br){
-        System.out.println("Press enter do next turn");
+        System.out.println("Press enter to continue");
         try {
             br.readLine();
         } catch (IOException e) {
