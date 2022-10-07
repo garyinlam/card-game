@@ -6,17 +6,19 @@ import java.io.IOException;
 public class Snap extends CardGame{
 
     private Card lastCard;
-    private Player[] players = new Player[2];
+    private Player[] players;
 
     private boolean isMultiplayer;
 
     public Snap() {
         super("snap");
+        players = new Player[2];
     }
 
     @Override
     public void doGame(BufferedReader br) throws IOException {
-        System.out.println("Welcome to snap");
+        System.out.println("Welcome to "+getName());
+
         setUp(br);
         shuffleDeck();
         boolean hasWon = false;

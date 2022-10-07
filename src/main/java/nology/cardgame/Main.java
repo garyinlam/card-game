@@ -13,7 +13,8 @@ public class Main {
             System.out.println("Choose a game:");
             System.out.println("1 - Snap");
             System.out.println("2 - Blackjack");
-            int choice = Input.getInt(br,1,2);
+            System.out.println("3 - War");
+            int choice = Input.getInt(br,1,3);
             CardGame game = null;
             switch (choice){
                 case 1:
@@ -21,6 +22,9 @@ public class Main {
                     break;
                 case 2:
                     game = new Blackjack();
+                    break;
+                case 3:
+                    game = new War();
                     break;
             }
             try {

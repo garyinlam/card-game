@@ -5,17 +5,19 @@ import java.io.IOException;
 
 public class Blackjack extends CardGame{
 
-    private BlackjackPlayer[] players = new BlackjackPlayer[2];
+    private BlackjackPlayer[] players;
     private int rounds;
-    private int roundsWon = 0;
+    private int roundsWon;
 
     public Blackjack() {
         super("blackjack");
+        players = new BlackjackPlayer[2];
+        roundsWon = 0;
     }
 
     @Override
     public void doGame(BufferedReader br) throws IOException {
-        System.out.println("Welcome to blackjack");
+        System.out.println("Welcome to "+getName());
         setUp(br);
         for (int i = 0; i < rounds; i++) {
             doRound(br);

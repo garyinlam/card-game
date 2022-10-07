@@ -7,14 +7,17 @@ import java.util.Collections;
 import java.util.Random;
 
 public abstract class CardGame {
-    ArrayList<Card> deckOfCards;
-    String name;
+    private ArrayList<Card> deckOfCards;
+    private String name;
 
     public CardGame(String name) {
         this.name = name;
         generateDeck();
     }
 
+    public String getName() {
+        return name;
+    }
 
     public ArrayList<Card> getDeck() {
         return deckOfCards;
@@ -61,9 +64,7 @@ public abstract class CardGame {
     }
 
     public void printDeck() {
-        deckOfCards.forEach(card -> {
-            System.out.print(card.shortString()+ " ");
-        });
+        deckOfCards.forEach(card -> System.out.print(card.shortString()+ " "));
         System.out.println();
     }
 
