@@ -1,14 +1,14 @@
 package nology.cardgame;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class WarPlayer extends Player {
 
-    private ArrayList<Card> deck;
+    private Stack<Card> deck;
     private int cardsWon = 0;
 
 
-    public WarPlayer(String name, ArrayList<Card> deck) {
+    public WarPlayer(String name, Stack<Card> deck) {
         super(name);
         this.deck = deck;
     }
@@ -21,7 +21,7 @@ public class WarPlayer extends Player {
         if (deck.size() == 0){
             return null;
         }
-        return deck.remove(deck.size()-1);
+        return deck.pop();
     }
 
     public void addWonCards(int won){

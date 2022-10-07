@@ -2,7 +2,7 @@ package nology.cardgame;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class War extends CardGame{
 
@@ -65,8 +65,12 @@ public class War extends CardGame{
             Input.wait(br);
         }
         System.out.println("Enter your name:");
-        players[0] = new WarPlayer(Input.getName(br), new ArrayList<>(getDeck().subList(0,getDeck().size()/2)));
-        players[1] = new WarPlayer("Computer",new ArrayList<>(getDeck().subList(getDeck().size()/2,getDeck().size())));
+        Stack<Card> temp = new Stack<>();
+        temp.addAll(getDeck().subList(0,getDeck().size()/2));
+        players[0] = new WarPlayer(Input.getName(br), temp);
+        temp.clear();
+        temp.addAll(getDeck().subList(getDeck().size()/2,getDeck().size()));
+        players[1] = new WarPlayer("Computer", temp);
     }
 
     public static void rules() {
