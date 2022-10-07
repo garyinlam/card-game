@@ -64,17 +64,28 @@ public class War extends CardGame{
             rules();
             Input.wait(br);
         }
-        System.out.println("Enter your name:");
+        System.out.println("Would you like to play against a friend (y) or the computer (n)");
+        String player1 = "";
+        String player2 = "Computer";
+        if (Input.confirm(br)){
+            System.out.println("Enter first player's name:");
+            player1 = Input.getName(br);
+            System.out.println("Enter second player's name:");
+            player2 = Input.getName(br);
+        } else {
+            System.out.println("Enter your name:");
+            player1 = Input.getName(br);
+        }
         Stack<Card> temp = new Stack<>();
         temp.addAll(getDeck().subList(0,getDeck().size()/2));
-        players[0] = new WarPlayer(Input.getName(br), temp);
+        players[0] = new WarPlayer(player1, temp);
         temp.clear();
         temp.addAll(getDeck().subList(getDeck().size()/2,getDeck().size()));
-        players[1] = new WarPlayer("Computer", temp);
+        players[1] = new WarPlayer(player2, temp);
     }
 
     public static void rules() {
-        System.out.println("War is played vs the computer");
+        System.out.println("War can be played versus the computer or another player.");
         System.out.println("Both players receive half of a shuffled deck");
         System.out.println("Both players then deal the top card of the deck");
         System.out.println("The card with the greater value (Ace high) wins");
