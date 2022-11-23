@@ -7,6 +7,10 @@ Each card has a suit (represented using unicode symbol), a symbol (A,2,3,4,5,6,7
 Cards are used to create a deck of cards. 
 This deck can be sorted by value or suit or be shuffled.
 
+## Technologies
+
+- Java
+
 ## Snap
 Snap can be played as a 2 player game or versus the computer.
 
@@ -17,6 +21,8 @@ If the dealt card's value matches that of the card that was previously dealt, th
 In the event 'snap' is not type or mistyped that player loses.
 
 When playing versus the computer the player must type snap to win, or the computer will win.
+
+![Screenshot](/screenshots/Screenshot%202022-11-23%20140445.jpg)
 
 
 ## Blackjack
@@ -34,6 +40,9 @@ The player can now choose to 'hit' or 'stand'.
 - Hitting will give the player another card.
   - If the player's score is above 21, they will bust and their turn will end.
 - Standing will end the player's turn.
+
+![Screenshot](/screenshots/Screenshot%202022-11-23%20140319.jpg)
+
 
 ### Card scores:
 - Number cards have their face value (2-10)
@@ -74,3 +83,5 @@ These cards are then compared on their value (Ace high).
 The game ends when both players have no more unplayed cards.
 
 The winner is the player with more cards at the end.
+
+![Screenshot](/screenshots/Screenshot%202022-11-23%20140516.jpg)
